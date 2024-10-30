@@ -1,0 +1,18 @@
+version: '2.4'
+services:
+  db:
+    image: postgres:13.10
+    env_file: ./.env
+    volumes:
+      - pg_data:/vat/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    # healthcheck:
+    #   test: ["CMD-SHELL", "pg_isready -U postgres"]
+    #   interval: 10s
+    #   timeout: 5s
+    #   retries: 5
+ 
+volumes:
+  # static:
+  pg_data:
